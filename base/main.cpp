@@ -26,7 +26,9 @@ int main(int argc, char** argv) {
 	structDome s2;
 	s2.a = 3;
 	
-	cout<<s1.a<<s2.a<<endl; 
+	int sum = s1.add(1,4);
+	
+	cout<<s1.a<<s2.a<<sum<<endl; 
 	
 	return 0;
 }

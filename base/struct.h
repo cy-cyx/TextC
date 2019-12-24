@@ -10,4 +10,7 @@ typeder struct ½á¹¹Ãû
 */
 typedef struct structDome{
 	int a; 
+	int add(int a,int b){
+		return a + b;
+	} 
 } sDome;
