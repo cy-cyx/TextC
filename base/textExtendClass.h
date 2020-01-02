@@ -3,7 +3,7 @@
 #define TEXTCLASS_H
 #include "textClass.h"
 
-class BigDog:public Dog{
+class BigDog:public Dog {
 	public:
 		BigDog(int i,int ii);
 };

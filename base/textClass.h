@@ -4,7 +4,7 @@
 
 #include<iostream>
 
-class Dog{
+class Dog {
 	public:
 		Dog();
 		Dog(int i,int ii);

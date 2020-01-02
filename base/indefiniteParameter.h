@@ -1,5 +1,5 @@
 /**
-不定参数 
+不定参数
 */
 #ifndef INDEFINITEPARAMETER_H
 
