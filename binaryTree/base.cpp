@@ -221,7 +221,7 @@ void deleteLeaf(TreeNode** root,int target) {
 				childNode->rightLeaf = (*root)->rightLeaf;
 				childNode->leftLeaf = (*root)->leftLeaf;
 				maxChildFatherNode->rightLeaf = NULL;
-				
+
 				if(isLeft) {
 					targetFatherNode->leftLeaf = childNode;
 				} else {
@@ -232,5 +232,7 @@ void deleteLeaf(TreeNode** root,int target) {
 
 		}
 	}
+
+	std::cout << "成功删除结点，staget = "<< target << std::endl;
 }
 
