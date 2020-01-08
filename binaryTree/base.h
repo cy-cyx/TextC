@@ -26,6 +26,7 @@ void findMax(TreeNode**);
 // 查找最小值
 void findMin(TreeNode**);
 
-
+// 删除指定子叶
+void deleteLeaf(TreeNode**,int);
 
 #endif
