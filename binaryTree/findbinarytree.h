@@ -1,4 +1,3 @@
-#ifndef BASE_H
 /*
 	Name:
 	Copyright:
@@ -11,7 +10,8 @@
 	  4、删除
 	  5、遍历 LDR(从小到大排序) LDR（从大到小排序）
 */
-#define BASE_H
+#ifndef FINDBINARYTREE_H
+#define FINDBINARYTREE_H
 
 #include<stdlib.h>
 #include <iostream>
