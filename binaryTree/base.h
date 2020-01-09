@@ -1,4 +1,16 @@
 #ifndef BASE_H
+/*
+	Name:
+	Copyright:
+	Author:
+	Date: 09/01/20 16:53
+	Description: 二叉查找树\二叉顺序树
+	  1、插入
+	  2、查找
+	  3、打印  打印树状图
+	  4、删除
+	  5、遍历 LDR(从小到大排序) LDR（从大到小排序）
+*/
 #define BASE_H
 
 #include<stdlib.h>
@@ -7,7 +19,7 @@
 struct TreeNode {
 	TreeNode* leftLeaf;
 	TreeNode* rightLeaf;
-	TreeNode* father;
+	TreeNode* father; // 未使用
 	int data;
 };
 
@@ -28,5 +40,15 @@ void findMin(TreeNode**);
 
 // 删除指定子叶
 void deleteLeaf(TreeNode**,int);
+
+// 遍历 （L）左子树  （D）根结点   （R）右子树
+// LDR
+void traversalLDR(TreeNode**);
+
+// DLR
+void traversalDLR(TreeNode**);
+
+// RDL
+void traversalRDL(TreeNode**);
 
 #endif

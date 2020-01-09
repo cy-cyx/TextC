@@ -236,3 +236,33 @@ void deleteLeaf(TreeNode** root,int target) {
 	std::cout << "成功删除结点，staget = "<< target << std::endl;
 }
 
+void traversalLDR(TreeNode** root) {
+	// 先遍历左树
+	if((*root)->leftLeaf != NULL) {
+		traversalLDR(&(*root)->leftLeaf);
+	}
+
+	// 打印根
+	std::cout<<(*root)->data<<" ";
+
+	// 遍历右树
+	if((*root)->rightLeaf != NULL) {
+		traversalLDR(&(*root)->rightLeaf);
+	}
+}
+
+void traversalRDL(TreeNode** root) {
+	// 右树
+	if((*root)->rightLeaf != NULL) {
+		traversalRDL(&(*root)->rightLeaf);
+	}
+
+	// 打印根
+	std::cout<<(*root)->data<<" ";
+
+	// 左树
+	if((*root)->leftLeaf != NULL) {
+		traversalRDL(&(*root)->leftLeaf);
+	}
+}
+

@@ -25,17 +25,25 @@ int main(int argc, char** argv) {
 
 	print(&root,0);
 
-	find(&root,9,0);
+//	find(&root,9,0);
+//
+//	find(&root,10,0);
+//
+//	findMax(&root);
+//
+//	findMin(&root);
+//
+//	deleteLeaf(&root,23);
+//
+//	print(&root,0);
 
-	find(&root,10,0);
+	traversalLDR(&root);
 
-	findMax(&root);
+	cout<<"LDR遍历结束"<<endl;
 
-	findMin(&root);
+	traversalRDL(&root);
 
-	deleteLeaf(&root,23);
-
-	print(&root,0);
+	cout<<"RDL遍历结束"<<endl;
 
 	return 0;
 }
