@@ -162,8 +162,10 @@ void deleteLeaf(TreeNode** root,int target) {
 
 				// 直接把该结点，插到要删除结点的位置
 				childNode->rightLeaf = (*root)->rightLeaf;
+
+				// 这里要注意：这个最大的结点，可能还存在左孩子结点
+				maxChildFatherNode->rightLeaf = childNode->leftLeaf;
 				childNode->leftLeaf = (*root)->leftLeaf;
-				maxChildFatherNode->rightLeaf = NULL;
 				delete *root;
 				*root  = childNode;
 			}
@@ -218,9 +220,11 @@ void deleteLeaf(TreeNode** root,int target) {
 			} else {
 
 				// 直接把该结点，插到要删除结点的位置
-				childNode->rightLeaf = (*root)->rightLeaf;
-				childNode->leftLeaf = (*root)->leftLeaf;
-				maxChildFatherNode->rightLeaf = NULL;
+				childNode->rightLeaf = targetNode->rightLeaf;
+
+				// 这里要注意：这个最大的结点，可能还存在左孩子结点
+				maxChildFatherNode->rightLeaf = childNode->leftLeaf;
+				childNode->leftLeaf = targetNode->leftLeaf;
 
 				if(isLeft) {
 					targetFatherNode->leftLeaf = childNode;

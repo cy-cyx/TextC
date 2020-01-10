@@ -33,9 +33,9 @@ int main(int argc, char** argv) {
 //
 //	findMin(&root);
 //
-//	deleteLeaf(&root,23);
-//
-//	print(&root,0);
+	deleteLeaf(&root,6);
+
+	print(&root,0);
 
 	traversalLDR(&root);
 
