@@ -1,8 +1,7 @@
 #include <iostream>
-#include "findbinarytree.h"
 #include<stdlib.h>
-
-using namespace std;
+#include "findbinarytree.h"
+#include "balancebinarytree.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -20,30 +19,32 @@ int main(int argc, char** argv) {
 	int l = length(datas);
 
 	for(int index = 0; index < l; index++) {
-		insert(&root,datas[index]);
+		insertLeaf_find(&root,datas[index]);
 	}
 
 	print(&root,0);
 
-//	find(&root,9,0);
-//
-//	find(&root,10,0);
-//
-//	findMax(&root);
-//
-//	findMin(&root);
-//
-	deleteLeaf(&root,6);
+	find(&root,9,0);
+
+	find(&root,10,0);
+
+	findMax(&root);
+
+	findMin(&root);
+
+	deleteLeaf_find(&root,6);
 
 	print(&root,0);
 
 	traversalLDR(&root);
 
-	cout<<"LDR遍历结束"<<endl;
+	std::cout<<"LDR遍历结束"<<std::endl;
 
 	traversalRDL(&root);
 
-	cout<<"RDL遍历结束"<<endl;
+	std::cout<<"RDL遍历结束"<<std::endl;
+
+	std::cout<<"当前树的高度为："<<getTreeHeight(&root)<<std::endl;
 
 	return 0;
 }
