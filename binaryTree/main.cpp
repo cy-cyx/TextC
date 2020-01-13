@@ -18,33 +18,39 @@ int main(int argc, char** argv) {
 
 	int l = length(datas);
 
+//	for(int index = 0; index < l; index++) {
+//		insertLeaf_find(&root,datas[index]);
+//	}
+//
+//	print(&root,0);
+//
+//	find(&root,9,0);
+//
+//	find(&root,10,0);
+//
+//	findMax(&root);
+//
+//	findMin(&root);
+//
+//	deleteLeaf_find(&root,6);
+//
+//	print(&root,0);
+//
+//	traversalLDR(&root);
+//
+//	std::cout<<"LDR遍历结束"<<std::endl;
+//
+//	traversalRDL(&root);
+//
+//	std::cout<<"RDL遍历结束"<<std::endl;
+//
+//	std::cout<<"当前树的高度为："<<getTreeHeight(root)<<std::endl;
+
 	for(int index = 0; index < l; index++) {
-		insertLeaf_find(&root,datas[index]);
+		insert_balance(&root,NULL,datas[index]);
 	}
 
 	print(&root,0);
-
-	find(&root,9,0);
-
-	find(&root,10,0);
-
-	findMax(&root);
-
-	findMin(&root);
-
-	deleteLeaf_find(&root,6);
-
-	print(&root,0);
-
-	traversalLDR(&root);
-
-	std::cout<<"LDR遍历结束"<<std::endl;
-
-	traversalRDL(&root);
-
-	std::cout<<"RDL遍历结束"<<std::endl;
-
-	std::cout<<"当前树的高度为："<<getTreeHeight(&root)<<std::endl;
 
 	return 0;
 }

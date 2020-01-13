@@ -47,6 +47,6 @@ void traversalDLR(TreeNode**);
 void traversalRDL(TreeNode**);
 
 // 获得树的高度
-int getTreeHeight(TreeNode**);
+int getTreeHeight(TreeNode*);
 
 #endif

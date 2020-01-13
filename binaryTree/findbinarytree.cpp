@@ -6,6 +6,7 @@ void insertLeaf_find(TreeNode** node,int data) {
 		*node = (TreeNode*)malloc(sizeof(TreeNode));
 		(*node)->leftLeaf = NULL;
 		(*node)->rightLeaf = NULL;
+		(*node)->father = NULL;
 		(*node)->data = data;
 	}
 	// 如果结点不为空，就往孩子结点的孩子结点继续放下去，按照递归

@@ -101,7 +101,7 @@ void traversalRDL(TreeNode** root) {
 	}
 }
 
-int getTreeHeight(TreeNode** node) {
-	if(*node == NULL) return 0;
-	return(std::max(getTreeHeight(&(*node)->leftLeaf),getTreeHeight(&(*node)->rightLeaf)) + 1);
+int getTreeHeight(TreeNode* node) {
+	if(node == NULL) return 0;
+	return(std::max(getTreeHeight(node->leftLeaf),getTreeHeight(node->rightLeaf)) + 1);
 }
