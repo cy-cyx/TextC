@@ -12,47 +12,55 @@ int length(T& arr) {
 
 int main(int argc, char** argv) {
 
-	TreeNode* root = NULL;
+	TreeNode* findRoot = NULL;
+	TreeNode* balanceRoot = NULL;
 
-	int datas[] = {1,43,6,82,74,99,45,73,23,1,5,33,3,2,9,4,5,63,2,64,3,3};
+	int datas[] = {1,43,6,82,74,99,45,73,23,1};
 
 	int l = length(datas);
 
 //	for(int index = 0; index < l; index++) {
-//		insertLeaf_find(&root,datas[index]);
+//		insertLeaf_find(&findRoot,datas[index]);
 //	}
 //
-//	print(&root,0);
+//	std::cout<<"当前树的高度为："<<getTreeHeight(findRoot)<<std::endl;
 //
-//	find(&root,9,0);
+//	print(&findRoot,0);
 //
-//	find(&root,10,0);
+//	find(&findRoot,9,0);
 //
-//	findMax(&root);
+//	find(&findRoot,10,0);
 //
-//	findMin(&root);
+//	findMax(&findRoot);
 //
-//	deleteLeaf_find(&root,6);
+//	findMin(&findRoot);
 //
-//	print(&root,0);
+//	deleteLeaf_find(&findRoot,6);
 //
-//	traversalLDR(&root);
+//	print(&findRoot,0);
+//
+//	traversalLDR(&findRoot);
 //
 //	std::cout<<"LDR遍历结束"<<std::endl;
 //
-//	traversalRDL(&root);
+//	traversalRDL(&findRoot);
 //
 //	std::cout<<"RDL遍历结束"<<std::endl;
 //
-//	std::cout<<"当前树的高度为："<<getTreeHeight(root)<<std::endl;
 
 	for(int index = 0; index < l; index++) {
-		insert_balance(&root,datas[index]);
+		insert_balance(&balanceRoot,datas[index]);
 	}
 
-	print(&root,0);
+//	std::cout<<"当前树的高度为："<<getTreeHeight(balanceRoot)<<std::endl;
 
-	traversalLDR(&root);
+	print(&balanceRoot,0);
+
+	delete_balance(&balanceRoot,43);
+	
+	print(&balanceRoot,0);
+
+	traversalLDR(&balanceRoot);
 
 	std::cout<<"LDR遍历结束"<<std::endl;
 
