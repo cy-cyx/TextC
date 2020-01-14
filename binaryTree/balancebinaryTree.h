@@ -15,6 +15,6 @@
 // 只要恢复最近的不平衡二叉树，即可恢复整棵树的平衡性。
 // 理由：恢复了最近的不平衡二叉树，即恢复该子树原先的高度，且该子树就恢复平衡，所以整棵树就恢复平衡了
 // 恢复子树的方法有四种：LL RR LR RL
-void insert_balance(TreeNode**,TreeNode*,int);
+void insert_balance(TreeNode**,int);
 
 #endif

@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 
 	TreeNode* root = NULL;
 
-	int datas[] = {43,6,82,74,99,45,73,23,1,5,33,3,2,9,4,5,63,2,64,3,3};
+	int datas[] = {1,43,6,82,74,99,45,73,23,1,5,33,3,2,9,4,5,63,2,64,3,3};
 
 	int l = length(datas);
 
@@ -47,10 +47,14 @@ int main(int argc, char** argv) {
 //	std::cout<<"当前树的高度为："<<getTreeHeight(root)<<std::endl;
 
 	for(int index = 0; index < l; index++) {
-		insert_balance(&root,NULL,datas[index]);
+		insert_balance(&root,datas[index]);
 	}
 
 	print(&root,0);
+
+	traversalLDR(&root);
+
+	std::cout<<"LDR遍历结束"<<std::endl;
 
 	return 0;
 }
