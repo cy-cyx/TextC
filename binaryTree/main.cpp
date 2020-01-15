@@ -15,14 +15,14 @@ int main(int argc, char** argv) {
 	TreeNode* findRoot = NULL;
 	TreeNode* balanceRoot = NULL;
 
-	int datas[] = {1,43,6,82,74,99,45,73,23,1};
+	int datas[] = {1,43,6,82,74,99,45,73,23,1,5,33,3,2,9,4,5,63,2,64,3,3};
 
 	int l = length(datas);
 
 //	for(int index = 0; index < l; index++) {
 //		insertLeaf_find(&findRoot,datas[index]);
 //	}
-//
+
 //	std::cout<<"当前树的高度为："<<getTreeHeight(findRoot)<<std::endl;
 //
 //	print(&findRoot,0);
@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
 //
 //	findMin(&findRoot);
 //
-//	deleteLeaf_find(&findRoot,6);
+//	deleteLeaf_find(&findRoot,43);
 //
 //	print(&findRoot,0);
 //
@@ -55,7 +55,15 @@ int main(int argc, char** argv) {
 //	std::cout<<"当前树的高度为："<<getTreeHeight(balanceRoot)<<std::endl;
 
 	print(&balanceRoot,0);
-
+	
+	delete_balance(&balanceRoot,99);
+	
+	print(&balanceRoot,0);
+	
+	delete_balance(&balanceRoot,74);
+	
+	print(&balanceRoot,0);
+	
 	delete_balance(&balanceRoot,43);
 	
 	print(&balanceRoot,0);

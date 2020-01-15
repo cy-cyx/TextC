@@ -231,7 +231,10 @@ void delete_balance(TreeNode** root,int target) {
 			TreeNode* maxChildFatherNode = NULL;
 			TreeNode* childNode = targetNode->leftLeaf;
 			// 找左孩子结点（树）中最大的结点
-			while(childNode->rightLeaf != NULL) {
+			while(1) {
+				if(childNode->rightLeaf == NULL) {
+					break;
+				}
 				maxChildFatherNode = childNode;
 				childNode = childNode->rightLeaf;
 			}
@@ -259,10 +262,6 @@ void delete_balance(TreeNode** root,int target) {
 
 				childNode->rightLeaf = targetRightNode;
 
-				TreeNode* targetLeftNode = targetNode->leftLeaf;
-				targetLeftNode->father = childNode;
-
-				childNode->leftLeaf = targetLeftNode;
 
 				// 这里要注意：这个最大的结点，可能还存在左孩子结点
 				TreeNode* childLeftNode = childNode->leftLeaf;
@@ -271,6 +270,11 @@ void delete_balance(TreeNode** root,int target) {
 					childLeftNode->father = maxChildFatherNode;
 				}
 
+				TreeNode* targetLeftNode = targetNode->leftLeaf;
+				targetLeftNode->father = childNode;
+
+				childNode->leftLeaf = targetLeftNode;
+				
 				childNode->father = NULL;
 				*root  = childNode;
 				delete targetNode;
@@ -322,7 +326,10 @@ void delete_balance(TreeNode** root,int target) {
 			TreeNode* maxChildFatherNode = NULL;
 			TreeNode* childNode = targetNode->leftLeaf;
 
-			while(childNode->rightLeaf != NULL) {
+			while(1) {
+				if(childNode->rightLeaf == NULL) {
+					break;
+				}
 				maxChildFatherNode = childNode;
 				childNode = childNode->rightLeaf;
 			}
@@ -352,9 +359,6 @@ void delete_balance(TreeNode** root,int target) {
 				targetRightNode->father = childNode;
 				childNode->rightLeaf = targetRightNode;
 
-				TreeNode* targetLeftNode = targetNode->leftLeaf;
-				targetLeftNode->father = childNode;
-				childNode->leftLeaf = targetLeftNode;
 
 				// 这里要注意：这个最大的结点，可能还存在左孩子结点
 				TreeNode* childLeftNode = childNode->leftLeaf;
@@ -362,6 +366,10 @@ void delete_balance(TreeNode** root,int target) {
 				if(childLeftNode != NULL) {
 					childLeftNode->father = maxChildFatherNode;
 				}
+				
+				TreeNode* targetLeftNode = targetNode->leftLeaf;
+				targetLeftNode->father = childNode;
+				childNode->leftLeaf = targetLeftNode;
 
 				childNode->father = targetFatherNode;
 				if(isLeft) {

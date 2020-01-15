@@ -77,7 +77,10 @@ void deleteLeaf_find(TreeNode** root,int target) {
 			TreeNode* maxChildFatherNode = NULL;
 			TreeNode* childNode = targetNode->leftLeaf;
 			// 找左孩子结点（树）中最大的结点
-			while(childNode->rightLeaf != NULL) {
+			while(1) {
+				if(childNode->rightLeaf == NULL) {
+					break;
+				}
 				maxChildFatherNode = childNode;
 				childNode = childNode->rightLeaf;
 			}
@@ -132,7 +135,10 @@ void deleteLeaf_find(TreeNode** root,int target) {
 			TreeNode* maxChildFatherNode = NULL;
 			TreeNode* childNode = targetNode->leftLeaf;
 
-			while(childNode->rightLeaf != NULL) {
+			while(1) {
+				if(childNode->rightLeaf == NULL) {
+					break;
+				}
 				maxChildFatherNode = childNode;
 				childNode = childNode->rightLeaf;
 			}

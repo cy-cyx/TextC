@@ -1,4 +1,4 @@
-#include"binarytree.h" 
+#include"binarytree.h"
 
 void print(TreeNode** node,int level) {
 
@@ -24,7 +24,11 @@ void print(TreeNode** node,int level) {
 		for(int i = 0; i < level; i++) {
 			std::cout << "_";
 		}
-		std::cout <<level<<"_"<< (*node)->data << std::endl;
+		if((*node)->father == NULL) {
+			std::cout <<level<<"_"<< (*node)->data << std::endl;
+		} else {
+			std::cout <<level<<"_"<< (*node)->data << "_f = " <<(*node)->father->data<< std::endl;
+		}
 
 		// 打印右孩子结点
 		print(&(*node)->rightLeaf,level+1);
