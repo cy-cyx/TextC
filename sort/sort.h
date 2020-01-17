@@ -1,11 +1,16 @@
 #ifndef SORT_H
 #define SORT_H
 
+#include <iostream>
+
+// ╢Рс║
+void print(int*,int);
+
 // ц╟ещеепР
 void bubbleSort(int*,int);
 
 // ©ЛкыеепР
-void quickSort(int*,int);
+void quickSort(int*,int,int);
 
 // ╤яеепР
 void heapSort(int*,int);
