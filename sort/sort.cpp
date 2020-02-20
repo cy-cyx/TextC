@@ -102,3 +102,8 @@ void quickSort(int* data,int start,int sum) {
 	}
 }
 
+void baseSort(int* data,int sum) {
+	
+}
+
+
