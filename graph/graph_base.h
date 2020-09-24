@@ -1,14 +1,21 @@
-#ifndef GRAPH_BASE 
+#include <iostream>
 
-#define GRAPH_BASE
+#ifndef GRAPH_BASE_H
 
-#define MAXVES 100  // 最大存在的顶点数 
+#define GRAPH_BASE_H
 
-typedef struct{
-	char ves[MAXVES]  // 放顶点数 
-	int arc[MAXVES][MAXVES]  // 放度 
-	
-	int vesNum 
-};
+#define blankVer ' '
+#define Max 1000000
+#define MAXVER 100  // 最大的顶点数 
 
-#endif 
+/*
+* 通过矩阵存图
+*/
+typedef struct {
+	char vers[MAXVER];  // 放顶点
+	int arc[MAXVER][MAXVER];  // 放度
+
+	int vesNum,arcNum;
+} Graph;
+
+#endif
