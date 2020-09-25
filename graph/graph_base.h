@@ -13,9 +13,18 @@
 */
 typedef struct {
 	char vers[MAXVER];  // 放顶点
-	int arc[MAXVER][MAXVER];  // 放度
+	int arc[MAXVER][MAXVER];  // 放弧
 
 	int vesNum,arcNum;
 } Graph;
+
+/*
+* 弧
+*/
+typedef struct {
+	char enter;  // 入度
+	char quit;   // 出度
+	int adv;     // 权
+} Arc;
 
 #endif

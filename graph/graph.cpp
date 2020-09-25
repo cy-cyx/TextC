@@ -55,3 +55,118 @@ void insertVer(Graph* graph,char ver) {
 	graph->vesNum ++;
 	graph->vers[graph->vesNum - 1] = ver;
 }
+
+void insertArc(Graph* graph,Arc* arc) {
+	int enterArc; // 竖
+	int quitArc;  // 横
+
+	// 入度
+	for(int i = 0; i < graph->vesNum; i++) {
+
+		if(graph->vers[i] == arc->enter) {
+
+			enterArc = i;
+
+			break;
+		}
+
+		if(i == graph->vesNum - 1) {
+			return;
+		}
+	}
+
+	// 出度
+	for(int i = 0; i < graph->vesNum; i++) {
+
+		if(graph->vers[i] == arc->quit) {
+
+			quitArc = i;
+
+			break;
+		}
+
+		if(i == graph->vesNum - 1) {
+			return;
+		}
+	}
+
+	graph->arc[quitArc][enterArc]  = arc->adv;
+}
+
+/*
+* 寻找是否是遍历过的顶点
+*/
+bool findFineVer(char target,char* fineVers,int* fineVersIndex) {
+	for(int i = 0; i < *fineVersIndex; i++) {
+
+		if(fineVers[i] == target) {
+			return true;
+		}
+
+	}
+	return false;
+}
+
+void dfsInner(Graph* graph,char lastTarget,char target,char* fineVers,int* fineVersIndex) {
+
+	std::cout << "上一个连接顶点" << lastTarget << "--遍历顶点:" << target << std::endl;
+
+	fineVers[*fineVersIndex]= target;
+	*fineVersIndex = *fineVersIndex + 1;
+
+
+	int verIndex = 0;
+
+	// 通过入度和出度 找它fineVersIndex相关的弧
+
+	// 找到它在顶点数组中的位置
+	for(int i = 0; i < graph->vesNum; i++) {
+		if(graph->vers[i] == target) {
+			verIndex = i;
+			break;
+		}
+	}
+
+	// 入度
+	for(int i = 0; i < graph->vesNum; i++) {
+
+		if(graph->arc[i][verIndex] != Max) {
+
+			char nextVer = graph->vers[i];
+			if(!findFineVer(nextVer,fineVers,fineVersIndex)) {
+				dfsInner(graph,target,nextVer,fineVers,fineVersIndex);
+			}
+		}
+	}
+
+	// 出度
+	for(int i = 0; i < graph->vesNum; i++) {
+
+		if(graph->arc[verIndex][i] != Max) {
+
+			char nextVer = graph->vers[i];
+			if(!findFineVer(nextVer,fineVers,fineVersIndex)) {
+				dfsInner(graph,target,nextVer,fineVers,fineVersIndex);
+			}
+		}
+	}
+}
+
+void dfs(Graph* graph) {
+
+	std::cout << "开始深度遍历______" << std::endl;
+
+	// 存已找到的顶点
+	char* fineVers = (char*)malloc(sizeof(char) * graph->vesNum);
+	// 找到了几个
+	int fineVersIndex = 0;
+
+	// 开始遍历
+	dfsInner(graph,' ',graph->vers[0],fineVers,&fineVersIndex);
+
+	std::cout << "深度遍历结束______" << std::endl;
+}
+
+
+
+

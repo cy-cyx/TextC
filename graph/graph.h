@@ -19,4 +19,14 @@ void printGraph(Graph*);
 */
 void insertVer(Graph*,char);
 
+/*
+* 插入弧（带权）
+*/
+void insertArc(Graph*,Arc*);
+
+/*
+* 深度优先遍历
+*/
+void dfs(Graph*);
+
 #endif
