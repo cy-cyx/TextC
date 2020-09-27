@@ -1,9 +1,8 @@
-#include <iostream>
-
 #ifndef GRAPH_BASE_H
 
 #define GRAPH_BASE_H
 
+#include <iostream>
 #define blankVer ' '
 #define Max 1000000
 #define MAXVER 100  // 最大的顶点数 
@@ -27,9 +26,6 @@ typedef struct {
 	int adv;     // 权
 } Arc;
 
-/*
-* 队列
-*/
 
 
 #endif

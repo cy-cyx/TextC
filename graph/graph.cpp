@@ -169,5 +169,92 @@ void dfs(Graph* graph) {
 
 
 
+void bfs(Graph* graph) {
+
+	std::cout << "开始广度遍历______" << std::endl;
+
+	// 存已找到的顶点
+	char* fineVers = (char*)malloc(sizeof(char) * graph->vesNum);
+	// 找到了几个
+	int fineVersIndex = 0;
+
+	// 使用队列遍历广度
+	Queue* q = new Queue();
+
+	// 塞入第一个点
+	Node* fristNode = new Node();
+	fristNode->last = ' ';
+	fristNode->c = graph->vers[0];
+	fristNode->next = NODE_NULL;
+	q->enqueue(fristNode);
+
+	Node* temp = NODE_NULL;
+
+	temp = q->poll();
+	while(temp != NODE_NULL) {
+
+		if(findFineVer(temp->c,fineVers,&fineVersIndex)) {
+			delete temp;
+			temp = q->poll();
+			continue;
+		}
+
+		std::cout<< "根："<< temp->last << "顶点：" << temp->c << std::endl;
+
+		// 塞进已找到的组
+		fineVers[fineVersIndex]= temp->c;
+		fineVersIndex = fineVersIndex + 1;
+
+		// 找到在顶点数组中的位置
+		int verIndex = 0;
+		for(int i = 0; i < graph->vesNum; i++) {
+			if(graph->vers[i] == temp->c) {
+				verIndex = i;
+				break;
+			}
+		}
+
+		// 从入度找
+		for(int i = 0; i < graph->vesNum; i++) {
+			if(graph->arc[i][verIndex] != Max) {
+
+				char nextVer = graph->vers[i];
+				if(!findFineVer(nextVer,fineVers,&fineVersIndex)) {
+					Node* n = new Node();
+					n->last = temp->c;
+					n->c = nextVer;
+					n->next = NODE_NULL;
+					q->enqueue(n);
+				}
+			}
+		}
+
+		// 出度
+		for(int i = 0; i < graph->vesNum; i++) {
+
+			if(graph->arc[verIndex][i] != Max) {
+
+				char nextVer = graph->vers[i];
+				if(!findFineVer(nextVer,fineVers,&fineVersIndex)) {
+					Node* n = new Node();
+					n->last = temp->c;
+					n->c = nextVer;
+					n->next = NODE_NULL;
+					q->enqueue(n);
+				}
+			}
+		}
+
+		delete temp;
+		temp = q->poll();
+	}
+
+	delete q;
+
+	std::cout << "结束广度遍历______" << std::endl;
+
+}
+
+
 
 

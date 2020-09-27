@@ -45,8 +45,39 @@ int main(int argc, char** argv) {
 	// 深度遍历
 	dfs(graph);
 
+	std::cout << std::endl;
+
+	// 广度遍历
+	bfs(graph);
+
+	std::cout << std::endl;
+
 	// 打印
 	printGraph(graph);
+
+	// 测试队列
+//	Queue* q = new Queue;
+//
+//	// 插入
+//	Node* n = new Node();
+//	n->c = 'a';
+//	n->next = NODE_NULL;
+//
+//	q->enqueue(n);
+//
+//	Node* n1 = new Node();
+//	n1->c = 'c';
+//	n1->next = NODE_NULL;
+//
+//	q->enqueue(n1);
+//
+//	Node* on = q->poll();
+//	std::cout << on->c << std::endl;
+//	delete on;
+//
+//	Node* on1 = q->poll();
+//	std::cout << on1->c << std::endl;
+//	delete on1;
 
 	free(arc);
 	free(graph);

@@ -1,8 +1,9 @@
-#include "graph_base.h"
-
 #ifndef GRAPH_H
 
 #define GRAPH_H
+
+#include "graph_base.h"
+#include "queue.h"
 
 /*
 *初始化
@@ -25,8 +26,13 @@ void insertVer(Graph*,char);
 void insertArc(Graph*,Arc*);
 
 /*
-* 深度优先遍历
+* 深度优先遍历(无向)
 */
 void dfs(Graph*);
+
+/*
+* 广度优先遍历（无向）
+*/
+void bfs(Graph*);
 
 #endif
