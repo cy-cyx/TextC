@@ -27,4 +27,9 @@ typedef struct {
 	int adv;     // х╗
 } Arc;
 
+/*
+* ╤сап
+*/
+
+
 #endif
