@@ -90,14 +90,15 @@ void insertArc(Graph* graph,Arc* arc) {
 		}
 	}
 
+	graph->arcNum ++;
 	graph->arc[quitArc][enterArc]  = arc->adv;
 }
 
 /*
 * 寻找是否是遍历过的顶点
 */
-bool findFineVer(char target,char* fineVers,int* fineVersIndex) {
-	for(int i = 0; i < *fineVersIndex; i++) {
+bool findFineVer(char target,char* fineVers,int* fineVersSum) {
+	for(int i = 0; i < *fineVersSum; i++) {
 
 		if(fineVers[i] == target) {
 			return true;
@@ -253,6 +254,90 @@ void bfs(Graph* graph) {
 
 	std::cout << "结束广度遍历______" << std::endl;
 
+}
+
+/*
+* 值在数组中的位置
+*/
+int findVesIndex(char target,char* vers,int* versSum) {
+	for(int i = 0; i < *versSum; i++) {
+		if(vers[i] == target) {
+			return i;
+		}
+	}
+	return 0;
+}
+
+void prim(Graph* graph,char root) {
+	std::cout << "开始生成最小树(普里姆算法)" << std::endl;
+
+	std::cout << "根为：" << root << std::endl;
+
+	int consSum = 0;
+	// 放已经连接的顶点
+	char* cons = (char*)malloc(sizeof(char) * graph->vesNum);
+
+	cons[consSum] = root;
+	consSum ++;
+
+	// 最短临时变量
+	Arc* shortest = (Arc*)malloc(sizeof(Arc));
+	shortest->enter = ' ';
+	shortest->quit = ' ';
+	shortest->adv = Max;
+
+
+	// 把所有的顶点都连接起来
+	while(consSum < graph->vesNum) {
+
+		// 遍历所有已经找到的顶点找出最短的边（贪心算法）
+		for(int i = 0; i < consSum; i++) {
+			int taget = findVesIndex(cons[i],graph->vers,&(graph->vesNum));
+
+			// 找入度部分的
+			for(int ii = 0; ii < graph->vesNum; ii++) {
+				if(!findFineVer(graph->vers[ii],cons,&consSum)) {
+					if(graph->arc[taget][ii] != Max) {
+						if(shortest->adv > graph->arc[taget][ii]) {
+							shortest->enter = graph->vers[taget];
+							shortest->quit = graph->vers[ii];
+							shortest->adv = graph->arc[taget][ii];
+						}
+					}
+				}
+			}
+
+			// 找出度部分的
+			for(int ii = 0; ii < graph->vesNum; ii++) {
+				if(!findFineVer(graph->vers[ii],cons,&consSum)) {
+					if(graph->arc[ii][taget] != Max) {
+						if(shortest->adv > graph->arc[ii][taget]) {
+							shortest->enter = graph->vers[taget];
+							shortest->quit = graph->vers[ii];
+							shortest->adv = graph->arc[ii][taget];
+						}
+					}
+				}
+			}
+		}
+
+		std::cout << shortest->enter << " -> " << shortest->quit << "权:" << shortest->adv << std::endl;
+
+		cons[consSum] = shortest->quit;
+		consSum ++;
+
+
+		// 清空
+		shortest->enter = ' ';
+		shortest->quit = ' ';
+		shortest->adv = Max;
+
+	}
+
+	delete(shortest);
+	delete(cons);
+
+	std::cout << "生成最小树结束" << std::endl;
 }
 
 

@@ -18,7 +18,7 @@ typedef struct {
 } Graph;
 
 /*
-* ª°
+* ±ﬂ 
 */
 typedef struct {
 	char enter;  // »Î∂»

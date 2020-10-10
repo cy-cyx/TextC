@@ -35,4 +35,9 @@ void dfs(Graph*);
 */
 void bfs(Graph*);
 
+/*
+* 普里姆算法（最小生成树）  实现上使用 贪心算法
+*/
+void prim(Graph*,char);
+
 #endif

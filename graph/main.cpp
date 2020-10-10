@@ -55,6 +55,8 @@ int main(int argc, char** argv) {
 	// 打印
 	printGraph(graph);
 
+	std::cout << std::endl;
+
 	// 测试队列
 //	Queue* q = new Queue;
 //
@@ -78,6 +80,9 @@ int main(int argc, char** argv) {
 //	Node* on1 = q->poll();
 //	std::cout << on1->c << std::endl;
 //	delete on1;
+
+	// 普里姆算法
+	prim(graph,'a');
 
 	free(arc);
 	free(graph);
