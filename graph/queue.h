@@ -2,23 +2,24 @@
 
 #define QUEUE_H
 
-#define NODE_NULL ((Node*)0)
+#define NODE_NULL ((QueueNode*)0)
 
-struct Node {
-	Node *next;
+struct QueueNode {
+	QueueNode *next;
 	char c;
-	char last;
+	char last;  // ¸ù
 };
 
 class Queue {
 
 	public:
-		Node *head;
-		Node *tail;
+		QueueNode *head;
+		QueueNode *tail;
 		Queue();
 		~Queue();
-		void enqueue(Node*);
-		Node* poll();
+		void enqueue(QueueNode*);
+		QueueNode* poll();
 };
+
 
 #endif

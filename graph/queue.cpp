@@ -10,7 +10,7 @@ Queue::~Queue() {
 	tail = NODE_NULL;
 }
 
-void Queue::enqueue(Node* node) {
+void Queue::enqueue(QueueNode* node) {
 	if(tail != NODE_NULL) {
 		tail->next = node;
 		tail = node;
@@ -19,8 +19,8 @@ void Queue::enqueue(Node* node) {
 	}
 }
 
-Node* Queue::poll() {
-	Node* result = head;
+QueueNode* Queue::poll() {
+	QueueNode* result = head;
 	if(head != NODE_NULL) {
 		if(head->next != NODE_NULL) {
 			head = head->next;

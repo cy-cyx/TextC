@@ -4,6 +4,7 @@
 
 #include "graph_base.h"
 #include "queue.h"
+#include "linkedlist.h"
 
 /*
 *初始化
@@ -39,5 +40,10 @@ void bfs(Graph*);
 * 普里姆算法（最小生成树）  实现上使用 贪心算法
 */
 void prim(Graph*,char);
+
+/*
+* 克鲁斯卡尔算法 （最小生成树）  实现上使用 贪心算法
+*/
+void kruskal(Graph*);
 
 #endif

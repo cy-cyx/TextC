@@ -18,28 +18,28 @@ int main(int argc, char** argv) {
 	// 弧
 	Arc* arc = (Arc*)malloc(sizeof(Arc));
 
-	// a-> c 7
-	arc->adv = 7;
-	arc->quit = 'a';
-	arc->enter = 'c';
-	insertArc(graph,arc);
-
-	// a-> d  10
-	arc->adv = 10;
-	arc->quit = 'a';
-	arc->enter = 'd';
-	insertArc(graph,arc);
-
-	// c-> d  1
+	// a-> b 1
 	arc->adv = 1;
+	arc->quit = 'a';
+	arc->enter = 'b';
+	insertArc(graph,arc);
+
+	// c-> d  2
+	arc->adv = 2;
 	arc->quit = 'c';
 	arc->enter = 'd';
 	insertArc(graph,arc);
 
-	// b-> a 12
-	arc->adv = 12;
+	// a-> c 3
+	arc->adv = 3;
+	arc->quit = 'a';
+	arc->enter = 'c';
+	insertArc(graph,arc);
+
+	// b-> d 4
+	arc->adv = 4;
 	arc->quit = 'b';
-	arc->enter = 'a';
+	arc->enter = 'd';
 	insertArc(graph,arc);
 
 	// 深度遍历
@@ -61,28 +61,53 @@ int main(int argc, char** argv) {
 //	Queue* q = new Queue;
 //
 //	// 插入
-//	Node* n = new Node();
+//	QueueNode* n = new QueueNode();
 //	n->c = 'a';
 //	n->next = NODE_NULL;
 //
 //	q->enqueue(n);
 //
-//	Node* n1 = new Node();
+//	QueueNode* n1 = new QueueNode();
 //	n1->c = 'c';
 //	n1->next = NODE_NULL;
 //
 //	q->enqueue(n1);
 //
-//	Node* on = q->poll();
+//	QueueNode* on = q->poll();
 //	std::cout << on->c << std::endl;
 //	delete on;
 //
-//	Node* on1 = q->poll();
+//	QueueNode* on1 = q->poll();
 //	std::cout << on1->c << std::endl;
 //	delete on1;
 
+	// 测试列表
+//	LinkedList* list = new LinkedList();
+//
+//	// 1
+//	LinkedListNode* n1 = new LinkedListNode();
+//	n1->c = '1';
+//
+//	LinkedListNode* n2 = new LinkedListNode();
+//	n2->c = '2';
+//
+//	LinkedListNode* n3 = new LinkedListNode();
+//	n2->c = '3';
+//
+//	list->addRoot(n1);
+//	list->addRoot(n2);
+//	list->addRoot(n3);
+//	
+//	list->deleteRoot(n2);
+
+
 	// 普里姆算法
 	prim(graph,'a');
+
+	std::cout<< std::endl;
+
+	// 克里鲁斯卡算法
+	kruskal(graph);
 
 	free(arc);
 	free(graph);
